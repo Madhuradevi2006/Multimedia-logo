@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Bloomzy Bouquet Logo</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    font-family:sans-serif;
+    background:linear-gradient(135deg,#ffe6f0,#fff5e6,#e6fff7);
+}
+
+/* Logo styling */
+.logo-container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:10;
+}
+
+.logo-container img{
+    width:320px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Falling flowers */
+.flower{
+    position:absolute;
+    top:-50px;
+    font-size:24px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-50px) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0.8;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="logo-container">
+    <img src="C:\Users\ADMIN\Downloads\bouquet\logo.png.png" alt="Bloomzy Bouquet Logo">
+</div>
+
+<script>
+const flowers = ["🌸","🌼","🌷","💐"];
+
+for(let i=0;i<25;i++){
+    let f = document.createElement("div");
+    f.className="flower";
+    f.innerHTML=flowers[Math.floor(Math.random()*flowers.length)];
+
+    f.style.left=Math.random()*100+"vw";
+    f.style.animationDuration=(5+Math.random()*5)+"s";
+    f.style.fontSize=(18+Math.random()*20)+"px";
+
+    document.body.appendChild(f);
+}
+</script>
+
+</body>
+</html>
